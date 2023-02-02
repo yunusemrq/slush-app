@@ -1,0 +1,41 @@
+{
+  "theme": {
+    "color": {
+      "light": {
+        "mainBgColor": "#f8f9fa",
+        "white": "black",
+        "danger": "#FF0000",
+        "primary": "#2B7D80",
+        "black": "#000",
+        "text-color": "#a1a1a1",
+        "text-color-dark": "#30363b",
+        "border-color": "#30363d"
+      },
+      "dark": {
+        "mainBgColor": "#0e1117",
+        "white": "#fff",
+        "primary": "#2B7D80",
+        "danger": "black",
+        "black": "#000",
+        "text-color": "#a1a1a1",
+        "text-color-dark": "#fff",
+        "border-color": "#30363d"
+      }
+    },
+    "spacing": {
+      "small": 10,
+      "medium": 20,
+      "large": 30
+    },
+    "size": {
+      "small": 12,
+      "medium": 14,
+      "large": 16,
+      "full": "100%"
+    },
+    "font": {
+      "popins": "Poppins-Medium",
+      "popins-bold": "Poppins-Bold"
+    }
+  }
+}

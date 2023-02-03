@@ -9,47 +9,57 @@ import COLORS from "@/utils/colors";
 
 const MachinesScreen = () => {
   const navigation = useNavigation();
+  //! !!!!!
   return (
-      <Block flex={1} bg="mainBgColor">
-        <Block
-          direction={"row"}
-          justify={"space-between"}
-          align={"center"}
-          h={34}
-          mx={20}
-          mt={10}
-          bw={1}
-          br={8}
-          bc={COLORS.lightGray}
-        >
-          <Block h={"100%"} flex>
-            <TextInput
-              style={{ height: "100%", paddingLeft: 20, paddingRight: 10 }}
-              placeholder="Makine Ara"
-            />
-          </Block>
-          <AppButton
-            onPress={() => navigation.navigate(Routes.ADD_MACHINE_STACK)}
-          >
-            <Text align={"center"}>
-              Ekle{" "}
-              <AppIcon name="plus" type={IconTypes.antdesign} fs={16} mr={12} />
-            </Text>
-          </AppButton>
+    <Block flex={1} bg="mainBgColor">
+      <Block
+        direction={"row"}
+        justify={"space-between"}
+        align={"center"}
+        h={40}
+        mx={20}
+        my={10}
+        bw={1}
+        br={8}
+        pr={8}
+        bc={COLORS.lightGray}
+      >
+        <Block h={"100%"} flex={1}>
+          <TextInput
+            style={{
+              height: "100%",
+              paddingLeft: 20,
+              paddingRight: 10,
+              fontSize: 16
+            }}
+            placeholder="Makine Ara"
+          />
         </Block>
-        <ScrollView showsVerticalScrollIndicator={false}>
-          <Block p={20}>
-            <Block>
-              <MachineCard />
-              <MachineCard />
-              <MachineCard />
-              <MachineCard />
-              <MachineCard />
-              <MachineCard />
-            </Block>
-          </Block>
-        </ScrollView>
+        <AppButton
+          onPress={() => navigation.navigate(Routes.ADD_MACHINE_STACK)}
+        >
+          <Text align={"center"} direction={"row"}>
+            Ekle{" "}
+            <AppIcon name="plus" type={IconTypes.antdesign} fs={16} mr={12} />
+          </Text>
+        </AppButton>
       </Block>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Block px={20}>
+          <MachineCard />
+          <MachineCard />
+          <MachineCard />
+          <MachineCard />
+          <MachineCard />
+          <MachineCard />
+          <MachineCard />
+          <MachineCard />
+          <MachineCard />
+          <MachineCard />
+          <MachineCard />
+        </Block>
+      </ScrollView>
+    </Block>
   );
 };
 

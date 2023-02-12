@@ -9,7 +9,6 @@ import COLORS from "@/utils/colors";
 
 const MachinesScreen = () => {
   const navigation = useNavigation();
-  //! !!!!!
   return (
     <Block flex={1} bg="mainBgColor">
       <Block
@@ -46,15 +45,6 @@ const MachinesScreen = () => {
       </Block>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Block px={20}>
-          <MachineCard />
-          <MachineCard />
-          <MachineCard />
-          <MachineCard />
-          <MachineCard />
-          <MachineCard />
-          <MachineCard />
-          <MachineCard />
-          <MachineCard />
           <MachineCard />
           <MachineCard />
         </Block>

@@ -1,15 +1,16 @@
-import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import screens from './data';
-import {AppIcon} from '@/components/common';
-import {IconTypes} from '@/utils';
+import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import screens from "./data";
+import { AppIcon } from "@/components/common";
+import { IconTypes } from "@/utils";
+import Routes from "../Routes";
 
 const Tab = createBottomTabNavigator();
 
 const Tabbar = () => {
   return (
-    <Tab.Navigator>
-      {screens.map(({name, component, icon}, index) => (
+    <Tab.Navigator initialRouteName={Routes.HOME_STACK}>
+      {screens.map(({ name, component, icon }, index) => (
         <Tab.Screen
           key={index}
           name={name}
@@ -17,7 +18,7 @@ const Tabbar = () => {
           options={{
             headerShown: false,
             tabBarShowLabel: false,
-            tabBarIcon: ({color}) => (
+            tabBarIcon: ({ color }) => (
               <AppIcon
                 type={IconTypes.ionicon}
                 size={20}

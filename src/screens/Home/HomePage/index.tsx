@@ -1,18 +1,17 @@
 import { AppButton, Block, Text } from "@/components/common";
+import COLORS from "@/utils/colors";
 import React from "react";
 import { ScrollView } from "react-native";
 
 const HomeScreen = () => {
   return (
-    <Block flex={1} bg="mainBgColor">
-      <ScrollView>
-        <Block p={20}>
-          <Text>test</Text>
-          <AppButton>
-            <Text>dil değiştir</Text>
-          </AppButton>
-        </Block>
-      </ScrollView>
+    <Block flex={1} bg={COLORS.primary}>
+      <Block h={200}></Block>
+      <Block flex={1} bg={COLORS.white}>
+        <ScrollView>
+          <Text>Ana Menü</Text>
+        </ScrollView>
+      </Block>
     </Block>
   );
 };

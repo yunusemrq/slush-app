@@ -1,14 +1,43 @@
-import React from "react";
-import { AppButton, AppIcon, Block, Text } from "@/components/common";
-import { useNavigation } from "@react-navigation/native";
-import Routes from "@/navigation/Routes";
+import React, { useEffect, useState } from "react";
+import {
+  AppButton,
+  AppFlatList,
+  AppIcon,
+  Block,
+  Text,
+} from "@/components/common";
 import { MachineCard } from "@/components/MachineCard";
-import { Alert, Keyboard, ScrollView, TextInput, View } from "react-native";
+import Routes from "@/navigation/Routes";
 import { IconTypes } from "@/utils";
 import COLORS from "@/utils/colors";
+import { useNavigation } from "@react-navigation/native";
+import { TextInput } from "react-native";
+import { getMachines } from "@/api/services/machines";
 
 const MachinesScreen = () => {
-  const navigation = useNavigation();
+  const [machines, setMachines] = useState([]);
+  const [loader, setLoader] = useState(false);
+  const [text, setText] = useState("");
+
+  const navigation = useNavigation() as any;
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    setLoader(true);
+    const res = await getMachines();
+    const data = res.data.data;
+    setMachines(data);
+    setInterval(() => {
+      setLoader(false);
+    }, 1000);
+  };
+
+  const filteredMachines = (text: string) =>
+    [...machines]?.filter((r: any) => JSON.stringify(r).includes(text)) || [];
+
   return (
     <Block flex={1} bg="mainBgColor">
       <Block
@@ -29,8 +58,9 @@ const MachinesScreen = () => {
               height: "100%",
               paddingLeft: 20,
               paddingRight: 10,
-              fontSize: 16
+              fontSize: 16,
             }}
+            onChangeText={setText}
             placeholder="Makine Ara"
           />
         </Block>
@@ -38,17 +68,18 @@ const MachinesScreen = () => {
           onPress={() => navigation.navigate(Routes.ADD_MACHINE_STACK)}
         >
           <Text align={"center"} direction={"row"}>
-            Ekle{" "}
-            <AppIcon name="plus" type={IconTypes.antdesign} fs={16} mr={12} />
+            <AppIcon name="diff-added" type={IconTypes.octicon} fs={24} />
           </Text>
         </AppButton>
       </Block>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <Block px={20}>
-          <MachineCard />
-          <MachineCard />
-        </Block>
-      </ScrollView>
+      <Block px={20} flex={1}>
+        <AppFlatList
+          onRefresh={() => getData()}
+          refreshing={loader}
+          data={filteredMachines(text)}
+          renderItem={(machine) => <MachineCard machine={machine} />}
+        />
+      </Block>
     </Block>
   );
 };

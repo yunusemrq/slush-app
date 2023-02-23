@@ -1,37 +1,35 @@
-import { AppButton, AppIcon, AppImage, Block, Text } from "@/components/common";
-import { IconTypes } from "@/utils";
+import { AppButton, AppIcon, Block, Text } from "@/components/common";
+import { clearStorage, IconTypes } from "@/utils";
 import COLORS from "@/utils/colors";
-import React from "react";
-import { Image } from "react-native";
+import { useRoute } from "@react-navigation/native";
+import React, { useEffect, useState } from "react";
 import { ScrollView } from "react-native-gesture-handler";
 
 const MachineDetail = () => {
+  const [_data, setData] = useState({}) as any;
+  const route = useRoute() as any;
+
+  useEffect(() => {
+    const data = route.params.data[0];
+    setData(data);
+  }, []);
+
   return (
     <ScrollView>
       <Block flex={1} p={20}>
-        <Block bw={2} h={200} br={12}>
-          <Block
-            style={{ position: "absolute", right: 10, top: 10, zIndex: 999 }}
-            bg={COLORS.black}
-            bw={1}
-            w={28}
-            h={28}
-            align={"center"}
-            justify={"center"}
-            br={4}
-          >
-            <Text fs={18} color={"#fff"}>12</Text>
-          </Block>
-          <Image
-            style={{ width: "100%", height: "100%", borderRadius: 10 }}
-            source={require("@/assets/images/slush.jpeg")}
-          />
+        <Block mt={24}>
+          <Text color={COLORS.primary} fs={18}>
+            Marka:{""}
+            <Text color={COLORS.black} fs={15}>
+              {_data.brand}
+            </Text>
+          </Text>
         </Block>
         <Block mt={24}>
           <Text color={COLORS.primary} fs={18}>
             Müşteri:{" "}
             <Text color={COLORS.black} fs={15}>
-              Olive Garden (İsim Soyisim)
+              {_data.customer}
             </Text>
           </Text>
         </Block>

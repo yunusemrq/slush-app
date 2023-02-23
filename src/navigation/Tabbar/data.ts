@@ -5,18 +5,18 @@ const screens = [
   {
     name: Routes.MACHINE_STACK,
     component: MachineStack,
-    icon: "ios-clipboard"
+    icon: "ios-clipboard",
   },
   {
     name: Routes.HOME_STACK,
     component: HomeStack,
-    icon: "home"
+    icon: "home",
   },
   {
     name: Routes.PROFILE_SCREEN,
     component: ProfileStack,
-    icon: "person"
-  }
+    icon: "people-sharp",
+  },
 ];
 
 export default screens;

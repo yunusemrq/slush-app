@@ -8,6 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "app:name": "npx react-native-rename slushapp -b com.slushapp",
+    "apk-macos": "cd android && ./gradlew assembleRelease  && cd ..",
     "pod": "npx pod-install ios",
     "xcode": "cd ios && xed . && cd ..",
     "clean:android": "cd android && ./gradlew clean && cd ..",

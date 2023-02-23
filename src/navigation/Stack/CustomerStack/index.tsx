@@ -2,10 +2,11 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import screens from "./data";
 import { useTranslation } from "react-i18next";
+import COLORS from "@/utils/colors";
 
 const Stack = createStackNavigator();
 
-const MachineStack = () => {
+const CustomerStack = () => {
   const { t } = useTranslation();
   return (
     <Stack.Navigator>
@@ -26,4 +27,4 @@ const MachineStack = () => {
   );
 };
 
-export default MachineStack;
+export default CustomerStack;

@@ -1,9 +1,9 @@
-import {AxiosRequestConfig} from 'axios';
+import { AxiosRequestConfig } from 'axios';
 
-const baseURL = `https://api.github.com/`;
+const baseURL = `http://localhost:3333`;
 
 const multiForm: AxiosRequestConfig = {
-  headers: {'Content-Type': 'multipart/formdata'},
+  headers: { 'Content-Type': 'multipart/formdata' },
 };
 
-export {multiForm, baseURL};
+export { multiForm, baseURL };

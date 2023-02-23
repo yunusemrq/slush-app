@@ -7,5 +7,5 @@ export default Object.freeze({
   PROFILE_STACK: "ProfileStack",
   MACHINE_STACK: "MachineStack",
   ADD_MACHINE_STACK: "AddMachineStack",
-  MACHINE_DETAIL: "MachineDetailStack"
+  MACHINE_DETAIL_STACK: "MachineDetailStack"
 });
